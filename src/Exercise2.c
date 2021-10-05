@@ -9,23 +9,53 @@ Ex:
 |____________________________________|
 */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdio.h>
+int main(int argc, char *argv[]){
+    int max = -999;
+    int min = 999
+    ;
 
-int main(int argc, char *argv[]) {
-	//testing variable, applying it to your algorithm for auto-evaluating
-	argc--;
-	int testcase[argc],i;
-	for(i=0; i<argc;i++){
-		if(atoi(argv[i+1])==0){
-			argc = i;
-			break;
-		}
-		else
-			testcase[i] = atoi(argv[i+1]);
-	}
-	//Your codes here
+    if(argc < 2) {
+        return 0;
+    }
+    else if(argc == 2) {
+        int num = atoi(argv[1]);
+        if(num == 0){
+            return 0;
+        }else{
+            max = num;
+            min = num;
+        }
+    }else{
+        for(int i = 1; i < argc; i ++){
+            int num = atoi(argv[i]);
+            if(num == 0){
+                break;
+            }else{
+                if(num > max){
+                    max = num;
+                }
+
+                if(num < min){
+                    min = num;
+                }
+            }
+        }
+    }
+
+    
+
+    //printf("Input: ");
+    for(int i = 1; i < argc; i ++){
+        int num = atoi(argv[i]);
+    //    printf("%d ", num);
+    }
+
+    printf("\nMax: %d", max);
+    printf("\nMin: %d", min);
+    printf("\n");
 
 	return 0;
 }
